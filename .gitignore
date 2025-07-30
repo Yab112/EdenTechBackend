@@ -1,0 +1,9 @@
+.env
+node_modules/
+dist/
+*.log
+*.tsbuildinfo
+.DS_Store
+.vscode/        
+# Ignore environment variables
+.env
