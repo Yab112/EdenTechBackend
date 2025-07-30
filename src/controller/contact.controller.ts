@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { ContactFormData } from "../types/contact.types";
 import { validateContactInput } from "../utils/validationinput";
 import { sendEmail } from "../service/contact.service";
+import { Lead } from "../models/lead.model";
 
 export async function handleContactForm(req: Request, res: Response) {
   const formData: ContactFormData = req.body;
@@ -12,6 +13,8 @@ export async function handleContactForm(req: Request, res: Response) {
   }
 
   try {
+    await Lead.create(formData);
+    
     const result = await sendEmail(formData);
     return res.status(200).json({ message: "Email sent successfully", result });
   } catch (err) {
