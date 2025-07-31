@@ -14,9 +14,9 @@ export async function handleContactForm(req: Request, res: Response) {
 
   try {
     await Lead.create(formData);
-    
-    const result = await sendEmail(formData);
-    return res.status(200).json({ message: "Email sent successfully", result });
+
+    await sendEmail(formData);
+    return res.status(200).json({ message: "Email sent successfully" });
   } catch (err) {
     console.error("Failed to send email:", err);
     return res.status(500).json({ error: "Failed to send email" });
