@@ -4,8 +4,12 @@ FROM node:20-alpine
 # Set working directory
 WORKDIR /app
 
+
 # Copy package.json and package-lock.json (or pnpm-lock.yaml/yarn.lock)
 COPY package*.json ./
+
+
+COPY .env ./
 
 # Install dependencies
 RUN npm install 
