@@ -50,7 +50,7 @@ app.post("/api/contact", async (req: Request, res: Response) => {
   });
 
   const mailOptions = {
-    from: `"Eden Tech" <${process.env.EMAIL_USER}>`,
+    from: `"Hari Tech" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_TO || "eshetieyabibal@gmail.com",
     replyTo: email,
     subject: `New Contact Form Submission from ${fullName}`,
